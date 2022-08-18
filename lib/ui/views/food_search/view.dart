@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:food_picture_generator/navigation/pages.dart';
 import 'package:food_picture_generator/ui/base/base_view.dart';
 import 'package:food_picture_generator/ui/views/food_search/view_model.dart';
+import 'package:food_picture_generator/ui/widgets/custom_app_bar.dart';
 
 class FoodSearch extends StatefulWidget {
   const FoodSearch({Key? key}) : super(key: key);
@@ -24,6 +25,7 @@ class _FoodSearchState extends State<FoodSearch> {
         onModelReady: (model) => model.init(context),
         builder: (context, model, _) {
           return Scaffold(
+            appBar: FoodSearchAppBar.show(title: 'Food Search', showBack: true),
             backgroundColor: Theme.of(context).backgroundColor,
             body: Scaffold(
               body: Column(

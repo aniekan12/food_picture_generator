@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class AccelerateAppBar {
+class FoodSearchAppBar {
   static show(
           {required String title,
           bool showBack = true,
