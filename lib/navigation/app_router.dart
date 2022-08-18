@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
+import 'package:food_picture_generator/screens.dart';
 import 'package:food_picture_generator/ui/views/splash/view.dart';
 
 import 'app_state_manager.dart';
+import 'pages.dart';
 
 class AppRouter extends RouterDelegate
     with ChangeNotifier, PopNavigatorRouterDelegateMixin {
@@ -30,6 +32,7 @@ class AppRouter extends RouterDelegate
       pages: [
         if (!appStateManager.isInitialised) SplashView.page(),
         if (appStateManager.isInitialised) SplashView.page(),
+        if (appStateManager.isFoodSearchInitialised) FoodSearch.page(),
       ],
     );
   }
@@ -37,6 +40,11 @@ class AppRouter extends RouterDelegate
   bool _handlePopPage(Route<dynamic> route, result) {
     if (!route.didPop(result)) {
       return false;
+    }
+
+    if (route.settings.name == AppPages.foodSearchPath) {
+      appStateManager.isFoodSearchInitialised = false;
+      appStateManager.isInitialised = true;
     }
 
     return true;

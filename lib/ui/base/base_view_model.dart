@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 
 class BaseViewModel extends ChangeNotifier {
-
   BuildContext? _appContext;
   BuildContext? get appContext => _appContext;
-  set appContext(BuildContext? context){
+  set appContext(BuildContext? context) {
     _appContext = context;
     notifyListeners();
   }
@@ -14,8 +13,8 @@ class BaseViewModel extends ChangeNotifier {
 
   bool get isLoading => _isLoading;
   set isLoading(bool val) {
-      _isLoading = val;
-      notifyListeners();
+    _isLoading = val;
+    notifyListeners();
   }
 
   void setLoading(bool val) {
@@ -26,6 +25,7 @@ class BaseViewModel extends ChangeNotifier {
   @override
   void dispose() {
     disposed = true;
+
     super.dispose();
   }
 
